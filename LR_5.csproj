@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4FE50216-B072-4734-9B07-EB052CA2D63D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LR_5</RootNamespace>
+    <AssemblyName>LR_5</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdminDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminDelete.Designer.cs">
+      <DependentUpon>FormAdminDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdminMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminMain.Designer.cs">
+      <DependentUpon>FormAdminMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdminShedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminShedule.Designer.cs">
+      <DependentUpon>FormAdminShedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdminShowSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminShowSchedule.Designer.cs">
+      <DependentUpon>FormAdminShowSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainScreen.Designer.cs">
+      <DependentUpon>FormMainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormForgetPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForgetPass.Designer.cs">
+      <DependentUpon>FormForgetPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogIn.Designer.cs">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormParticipant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormParticipant.Designer.cs">
+      <DependentUpon>FormParticipant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormParticipantEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormParticipantEdit.Designer.cs">
+      <DependentUpon>FormParticipantEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPassRecovery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPassRecovery.Designer.cs">
+      <DependentUpon>FormPassRecovery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegister.Designer.cs">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShowSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShowSchedule.Designer.cs">
+      <DependentUpon>FormShowSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShowSpeakers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShowSpeakers.Designer.cs">
+      <DependentUpon>FormShowSpeakers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSpeaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpeaker.Designer.cs">
+      <DependentUpon>FormSpeaker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSpeakerEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpeakerEdit.Designer.cs">
+      <DependentUpon>FormSpeakerEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStaff.Designer.cs">
+      <DependentUpon>FormStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStaffEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStaffEdit.Designer.cs">
+      <DependentUpon>FormStaffEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTutor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTutor.Designer.cs">
+      <DependentUpon>FormTutor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTutorEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTutorEdit.Designer.cs">
+      <DependentUpon>FormTutorEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Groups.cs">
+      <DependentUpon>LR3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LR.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="LR3.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LR3.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LR3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LR3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Participant.cs">
+      <DependentUpon>LR3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schedule.cs">
+      <DependentUpon>LR3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Speaker.cs">
+      <DependentUpon>LR3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs">
+      <DependentUpon>LR3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tutor.cs">
+      <DependentUpon>LR3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>LR3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserContainer.cs" />
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminDelete.resx">
+      <DependentUpon>FormAdminDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminMain.resx">
+      <DependentUpon>FormAdminMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminShedule.resx">
+      <DependentUpon>FormAdminShedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminShowSchedule.resx">
+      <DependentUpon>FormAdminShowSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainScreen.resx">
+      <DependentUpon>FormMainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormForgetPass.resx">
+      <DependentUpon>FormForgetPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogIn.resx">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormParticipant.resx">
+      <DependentUpon>FormParticipant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormParticipantEdit.resx">
+      <DependentUpon>FormParticipantEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPassRecovery.resx">
+      <DependentUpon>FormPassRecovery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegister.resx">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowSchedule.resx">
+      <DependentUpon>FormShowSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowSpeakers.resx">
+      <DependentUpon>FormShowSpeakers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpeaker.resx">
+      <DependentUpon>FormSpeaker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpeakerEdit.resx">
+      <DependentUpon>FormSpeakerEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaff.resx">
+      <DependentUpon>FormStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaffEdit.resx">
+      <DependentUpon>FormStaffEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTutor.resx">
+      <DependentUpon>FormTutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTutorEdit.resx">
+      <DependentUpon>FormTutorEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="LR.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LR.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="LR.edmx.diagram">
+      <DependentUpon>LR.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LR.edmx.sql" />
+    <Content Include="LR3.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LR3.Context.cs</LastGenOutput>
+      <DependentUpon>LR.edmx</DependentUpon>
+    </Content>
+    <Content Include="LR3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LR3.cs</LastGenOutput>
+      <DependentUpon>LR.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
