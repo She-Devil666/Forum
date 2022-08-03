@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e5d4e773cb6346b58877ef6032ff17e2" Name="Diagram1" >
+        <EntityTypeShape EntityType="LR.User" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="LR.Speaker" Width="1.5" PointX="0.5" PointY="3.75" />
+        <AssociationConnector Association="LR.UserSpeaker" />
+        <EntityTypeShape EntityType="LR.Participant" Width="1.5" PointX="3.375" PointY="0.5" />
+        <AssociationConnector Association="LR.UserParticipant" />
+        <EntityTypeShape EntityType="LR.Staff" Width="1.5" PointX="6.625" PointY="0.5" />
+        <AssociationConnector Association="LR.UserStaff" />
+        <EntityTypeShape EntityType="LR.Schedule" Width="1.5" PointX="6.875" PointY="4.5" />
+        <AssociationConnector Association="LR.SpeakerSchedule" />
+        <EntityTypeShape EntityType="LR.Tutor" Width="1.5" PointX="9.875" PointY="0.625" />
+        <AssociationConnector Association="LR.TutotUser" />
+        <EntityTypeShape EntityType="LR.Groups" Width="1.5" PointX="12.875" PointY="1.625" />
+        <AssociationConnector Association="LR.TutotGroups" />
+        <AssociationConnector Association="LR.GroupsSpeaker" />
+        <AssociationConnector Association="LR.ParticipantGroups" />
+        <AssociationConnector Association="LR.FK_UserTutor" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

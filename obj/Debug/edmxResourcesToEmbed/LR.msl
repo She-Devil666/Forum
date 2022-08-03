@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LRStoreContainer" CdmEntityContainer="LRContainer2">
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LR.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpeakerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LR.Speaker)">
+        <MappingFragment StoreEntitySet="SpeakerSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Transfer" ColumnName="Transfer" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParticipantSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LR.Participant)">
+        <MappingFragment StoreEntitySet="ParticipantSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Birtday" ColumnName="Birtday" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+          <ScalarProperty Name="Transfer" ColumnName="Transfer" />
+          <ScalarProperty Name="Documents" ColumnName="Documents" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LR.Staff)">
+        <MappingFragment StoreEntitySet="StaffSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Documents" ColumnName="Documents" />
+          <ScalarProperty Name="R_site" ColumnName="R_site" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScheduleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LR.Schedule)">
+        <MappingFragment StoreEntitySet="ScheduleSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Date_time" ColumnName="Date_time" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TutorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LR.Tutor)">
+        <MappingFragment StoreEntitySet="TutorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Documents" ColumnName="Documents" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+          <ScalarProperty Name="Childrens" ColumnName="Childrens" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LR.Groups)">
+        <MappingFragment StoreEntitySet="GroupsSet">
+          <ScalarProperty Name="Id_gr" ColumnName="Id_gr" />
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserSpeaker" TypeName="LR.UserSpeaker" StoreEntitySet="SpeakerSet">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="Speaker">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="User_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserParticipant" TypeName="LR.UserParticipant" StoreEntitySet="ParticipantSet">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="Participant">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="User_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserStaff" TypeName="LR.UserStaff" StoreEntitySet="StaffSet">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="Staff">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="User_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SpeakerSchedule" TypeName="LR.SpeakerSchedule" StoreEntitySet="ScheduleSet">
+      <EndProperty Name="Speaker">
+        <ScalarProperty Name="Id" ColumnName="Speaker_Id" />
+      </EndProperty>
+      <EndProperty Name="Schedule">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Speaker_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TutotUser" TypeName="LR.TutotUser" StoreEntitySet="UserSet">
+      <EndProperty Name="Tutot">
+        <ScalarProperty Name="Id" ColumnName="Tutor_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Tutor_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TutotGroups" TypeName="LR.TutotGroups" StoreEntitySet="GroupsSet">
+      <EndProperty Name="Tutot">
+        <ScalarProperty Name="Id" ColumnName="Tutor_Id" />
+      </EndProperty>
+      <EndProperty Name="Groups">
+        <ScalarProperty Name="Id_gr" ColumnName="Id_gr" />
+      </EndProperty>
+      <Condition ColumnName="Tutor_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GroupsSpeaker" TypeName="LR.GroupsSpeaker" StoreEntitySet="SpeakerSet">
+      <EndProperty Name="Groups">
+        <ScalarProperty Name="Id_gr" ColumnName="Groups_Id_gr" />
+      </EndProperty>
+      <EndProperty Name="Speaker">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Groups_Id_gr" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ParticipantGroups" TypeName="LR.ParticipantGroups" StoreEntitySet="GroupsSet">
+      <EndProperty Name="Participant">
+        <ScalarProperty Name="Id" ColumnName="Participant_Id" />
+      </EndProperty>
+      <EndProperty Name="Groups">
+        <ScalarProperty Name="Id_gr" ColumnName="Id_gr" />
+      </EndProperty>
+      <Condition ColumnName="Participant_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LR" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="LRContainer2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserSet" EntityType="LR.User" />
+    <EntitySet Name="SpeakerSet" EntityType="LR.Speaker" />
+    <AssociationSet Name="UserSpeaker" Association="LR.UserSpeaker">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Speaker" EntitySet="SpeakerSet" />
+    </AssociationSet>
+    <EntitySet Name="ParticipantSet" EntityType="LR.Participant" />
+    <AssociationSet Name="UserParticipant" Association="LR.UserParticipant">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Participant" EntitySet="ParticipantSet" />
+    </AssociationSet>
+    <EntitySet Name="StaffSet" EntityType="LR.Staff" />
+    <AssociationSet Name="UserStaff" Association="LR.UserStaff">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Staff" EntitySet="StaffSet" />
+    </AssociationSet>
+    <EntitySet Name="ScheduleSet" EntityType="LR.Schedule" />
+    <AssociationSet Name="SpeakerSchedule" Association="LR.SpeakerSchedule">
+      <End Role="Speaker" EntitySet="SpeakerSet" />
+      <End Role="Schedule" EntitySet="ScheduleSet" />
+    </AssociationSet>
+    <EntitySet Name="TutorSet" EntityType="LR.Tutor" />
+    <AssociationSet Name="TutotUser" Association="LR.TutotUser">
+      <End Role="Tutot" EntitySet="TutorSet" />
+      <End Role="User" EntitySet="UserSet" />
+    </AssociationSet>
+    <EntitySet Name="GroupsSet" EntityType="LR.Groups" />
+    <AssociationSet Name="TutotGroups" Association="LR.TutotGroups">
+      <End Role="Tutot" EntitySet="TutorSet" />
+      <End Role="Groups" EntitySet="GroupsSet" />
+    </AssociationSet>
+    <AssociationSet Name="GroupsSpeaker" Association="LR.GroupsSpeaker">
+      <End Role="Groups" EntitySet="GroupsSet" />
+      <End Role="Speaker" EntitySet="SpeakerSet" />
+    </AssociationSet>
+    <AssociationSet Name="ParticipantGroups" Association="LR.ParticipantGroups">
+      <End Role="Participant" EntitySet="ParticipantSet" />
+      <End Role="Groups" EntitySet="GroupsSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Role" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Image" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Speaker" Relationship="LR.UserSpeaker" FromRole="User" ToRole="Speaker" />
+    <NavigationProperty Name="Participant" Relationship="LR.UserParticipant" FromRole="User" ToRole="Participant" />
+    <NavigationProperty Name="Staff" Relationship="LR.UserStaff" FromRole="User" ToRole="Staff" />
+    <NavigationProperty Name="Tutor" Relationship="LR.TutotUser" FromRole="User" ToRole="Tutot" />
+  </EntityType>
+  <EntityType Name="Speaker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Patronymic" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="LR.UserSpeaker" FromRole="Speaker" ToRole="User" />
+    <Property Name="Mail" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Transfer" Type="Boolean" Nullable="false" />
+    <Property Name="Salary" Type="Int32" Nullable="false" />
+    <Property Name="Direction" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Schedule" Relationship="LR.SpeakerSchedule" FromRole="Speaker" ToRole="Schedule" />
+    <NavigationProperty Name="Groups" Relationship="LR.GroupsSpeaker" FromRole="Speaker" ToRole="Groups" />
+  </EntityType>
+  <Association Name="UserSpeaker">
+    <End Type="LR.User" Role="User" Multiplicity="0..1" />
+    <End Type="LR.Speaker" Role="Speaker" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Participant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Patronymic" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Birtday" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Mail" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Direction" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Transfer" Type="Boolean" Nullable="false" />
+    <Property Name="Documents" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="LR.UserParticipant" FromRole="Participant" ToRole="User" />
+    <NavigationProperty Name="Groups" Relationship="LR.ParticipantGroups" FromRole="Participant" ToRole="Groups" />
+  </EntityType>
+  <Association Name="UserParticipant">
+    <End Type="LR.User" Role="User" Multiplicity="0..1" />
+    <End Type="LR.Participant" Role="Participant" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Patronymic" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Position" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Documents" Type="Boolean" Nullable="false" />
+    <Property Name="R_site" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Place" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="User" Relationship="LR.UserStaff" FromRole="Staff" ToRole="User" />
+  </EntityType>
+  <Association Name="UserStaff">
+    <End Type="LR.User" Role="User" Multiplicity="0..1" />
+    <End Type="LR.Staff" Role="Staff" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Date_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Speaker" Relationship="LR.SpeakerSchedule" FromRole="Schedule" ToRole="Speaker" />
+  </EntityType>
+  <Association Name="SpeakerSchedule">
+    <End Type="LR.Speaker" Role="Speaker" Multiplicity="0..1" />
+    <End Type="LR.Schedule" Role="Schedule" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Tutor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Patronymic" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Documents" Type="Boolean" Nullable="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Direction" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Childrens" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="LR.TutotUser" FromRole="Tutot" ToRole="User" />
+    <NavigationProperty Name="Groups" Relationship="LR.TutotGroups" FromRole="Tutot" ToRole="Groups" />
+  </EntityType>
+  <Association Name="TutotUser">
+    <End Type="LR.Tutor" Role="Tutot" Multiplicity="0..1" />
+    <End Type="LR.User" Role="User" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="Id_gr" />
+    </Key>
+    <Property Name="Id_gr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Direction" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Tutor" Relationship="LR.TutotGroups" FromRole="Groups" ToRole="Tutot" />
+    <NavigationProperty Name="Speaker" Relationship="LR.GroupsSpeaker" FromRole="Groups" ToRole="Speaker" />
+    <NavigationProperty Name="Participant" Relationship="LR.ParticipantGroups" FromRole="Groups" ToRole="Participant" />
+  </EntityType>
+  <Association Name="TutotGroups">
+    <End Type="LR.Tutor" Role="Tutot" Multiplicity="0..1" />
+    <End Type="LR.Groups" Role="Groups" Multiplicity="0..1" />
+  </Association>
+  <Association Name="GroupsSpeaker">
+    <End Type="LR.Groups" Role="Groups" Multiplicity="0..1" />
+    <End Type="LR.Speaker" Role="Speaker" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ParticipantGroups">
+    <End Type="LR.Participant" Role="Participant" Multiplicity="0..1" />
+    <End Type="LR.Groups" Role="Groups" Multiplicity="*" />
+  </Association>
+</Schema>

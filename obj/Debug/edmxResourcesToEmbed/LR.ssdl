@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LR.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="GroupsSet">
+    <Key>
+      <PropertyRef Name="Id_gr" />
+    </Key>
+    <Property Name="Id_gr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Direction" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tutor_Id" Type="int" />
+    <Property Name="Participant_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="ParticipantSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Birtday" Type="datetime" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Direction" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Transfer" Type="bit" Nullable="false" />
+    <Property Name="Documents" Type="bit" Nullable="false" />
+    <Property Name="User_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="ScheduleSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date_time" Type="datetime" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Speaker_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="SpeakerSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Transfer" Type="bit" Nullable="false" />
+    <Property Name="Salary" Type="int" Nullable="false" />
+    <Property Name="Direction" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_Id" Type="int" />
+    <Property Name="Groups_Id_gr" Type="int" />
+  </EntityType>
+  <EntityType Name="StaffSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar(max)" />
+    <Property Name="Position" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="Documents" Type="bit" Nullable="false" />
+    <Property Name="R_site" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Place" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="TutorSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="Documents" Type="bit" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Direction" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Childrens" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Role" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Image" Type="image" Nullable="false" />
+    <Property Name="Tutor_Id" Type="int" />
+  </EntityType>
+  <Association Name="FK_GroupsSpeaker">
+    <End Role="GroupsSet" Type="Self.GroupsSet" Multiplicity="0..1" />
+    <End Role="SpeakerSet" Type="Self.SpeakerSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupsSet">
+        <PropertyRef Name="Id_gr" />
+      </Principal>
+      <Dependent Role="SpeakerSet">
+        <PropertyRef Name="Groups_Id_gr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParticipantGroups">
+    <End Role="ParticipantSet" Type="Self.ParticipantSet" Multiplicity="0..1" />
+    <End Role="GroupsSet" Type="Self.GroupsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParticipantSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupsSet">
+        <PropertyRef Name="Participant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpeakerSchedule">
+    <End Role="SpeakerSet" Type="Self.SpeakerSet" Multiplicity="0..1" />
+    <End Role="ScheduleSet" Type="Self.ScheduleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpeakerSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ScheduleSet">
+        <PropertyRef Name="Speaker_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TutotGroups">
+    <End Role="TutorSet" Type="Self.TutorSet" Multiplicity="0..1" />
+    <End Role="GroupsSet" Type="Self.GroupsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TutorSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupsSet">
+        <PropertyRef Name="Tutor_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TutotUser">
+    <End Role="TutorSet" Type="Self.TutorSet" Multiplicity="0..1" />
+    <End Role="UserSet" Type="Self.UserSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TutorSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserSet">
+        <PropertyRef Name="Tutor_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserParticipant">
+    <End Role="UserSet" Type="Self.UserSet" Multiplicity="0..1" />
+    <End Role="ParticipantSet" Type="Self.ParticipantSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ParticipantSet">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSpeaker">
+    <End Role="UserSet" Type="Self.UserSet" Multiplicity="0..1" />
+    <End Role="SpeakerSet" Type="Self.SpeakerSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpeakerSet">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserStaff">
+    <End Role="UserSet" Type="Self.UserSet" Multiplicity="0..1" />
+    <End Role="StaffSet" Type="Self.StaffSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StaffSet">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LRStoreContainer">
+    <EntitySet Name="GroupsSet" EntityType="Self.GroupsSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ParticipantSet" EntityType="Self.ParticipantSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleSet" EntityType="Self.ScheduleSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpeakerSet" EntityType="Self.SpeakerSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffSet" EntityType="Self.StaffSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TutorSet" EntityType="Self.TutorSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserSet" EntityType="Self.UserSet" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_GroupsSpeaker" Association="Self.FK_GroupsSpeaker">
+      <End Role="GroupsSet" EntitySet="GroupsSet" />
+      <End Role="SpeakerSet" EntitySet="SpeakerSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParticipantGroups" Association="Self.FK_ParticipantGroups">
+      <End Role="ParticipantSet" EntitySet="ParticipantSet" />
+      <End Role="GroupsSet" EntitySet="GroupsSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpeakerSchedule" Association="Self.FK_SpeakerSchedule">
+      <End Role="SpeakerSet" EntitySet="SpeakerSet" />
+      <End Role="ScheduleSet" EntitySet="ScheduleSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TutotGroups" Association="Self.FK_TutotGroups">
+      <End Role="TutorSet" EntitySet="TutorSet" />
+      <End Role="GroupsSet" EntitySet="GroupsSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TutotUser" Association="Self.FK_TutotUser">
+      <End Role="TutorSet" EntitySet="TutorSet" />
+      <End Role="UserSet" EntitySet="UserSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserParticipant" Association="Self.FK_UserParticipant">
+      <End Role="UserSet" EntitySet="UserSet" />
+      <End Role="ParticipantSet" EntitySet="ParticipantSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSpeaker" Association="Self.FK_UserSpeaker">
+      <End Role="UserSet" EntitySet="UserSet" />
+      <End Role="SpeakerSet" EntitySet="SpeakerSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserStaff" Association="Self.FK_UserStaff">
+      <End Role="UserSet" EntitySet="UserSet" />
+      <End Role="StaffSet" EntitySet="StaffSet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
